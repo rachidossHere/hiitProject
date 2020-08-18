@@ -1,0 +1,42 @@
+<mat-card class="mb30">
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Github Username" [(ngModel)]="username" name="username" (keyup)="search()">    
+                </div>    
+            </form>    
+        </div>    
+    </div>
+</mat-card>
+
+<mat-card *ngIf="user && username">
+    <mat-card-title>
+        <h3 class="panel-title">{{user.name}}</h3>
+    </mat-card-title>
+    <mat-card-content>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <img class="img-thumbnail github-avatar" src="{{user.avatar_url}}">
+                </div>
+                <div class="col-md-8">
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Username: </strong>{{user.login  || '-'}}</li> 
+                        <li class="list-group-item"><strong>Biographie: </strong>{{user.bio  || '-'}}</li> 
+                        <li class="list-group-item"><strong>public_repos: </strong>{{user.public_repos  || '-'}}</li> 
+                         <li class="list-group-item"><strong>Location: </strong>{{user.location || '-'}}</li>
+                          <li class="list-group-item"><strong>Email: </strong>{{user.email || '-'}}</li>
+                           <li class="list-group-item"><strong>Blog: </strong>{{user.blog || '-'}}</li> 
+                            <li class="list-group-item"><strong>Member Since: </strong>{{user.created_at || '-'}}</li>  
+                    </ul>
+                </div>    
+            </div>
+        </div>
+        <div class="btnList">
+            <button (click)="nextPage()">Next Page</button>
+        </div>
+    </mat-card-content>
+</mat-card>
+<div > 
+</div>

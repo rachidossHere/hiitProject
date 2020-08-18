@@ -1,0 +1,28 @@
+<mat-card class="mb30">
+    <div class="row">
+        <div class="col-md-12">
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Tape your URL" [(ngModel)]="shortUrl"
+                        name="shortUrl" (keyup)="search(shortUrl)">
+                </div>
+                <div class="btnList" *ngIf="shortUrl">
+                    <button [cdkCopyToClipboard]="copyShortUrl()" class="btn btn-default btn-secondary mb-2"
+                    tooltip="Copied!"
+                    placement="top" triggers="click">Copy</button>
+                </div>
+            </form>
+        </div>
+    </div>
+        </mat-card>
+    <mat-card *ngIf="shortUrl">
+            <mat-card-content>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{shortUrlCopy}}  
+                        </div>    
+                    </div>
+                </div>
+            </mat-card-content>
+</mat-card>
